@@ -1,16 +1,11 @@
-const menuItem = document.querySelector('.menu__sub')
-const subMenu = document.querySelectorAll('.menu_sub')
-subMenu.forEach(item => item.addEventListener('click', () => {
-    showMenu(menuItem)
+const menuItem = document.querySelectorAll('.menu__link')
+
+menuItem.forEach(item => item.addEventListener('click', (event) => {
+    const subMenu = item.closest('.menu__item').querySelector('.menu_sub');
+    if(subMenu) {
+        event.preventDefault()
+        subMenu.classList.toggle('menu_active')
+    }
+
 }))
-subMenu.forEach(item => item.closest('.menu__item').addEventListener('click', (evt) => {
-
-    evt.preventDefault()
-}))
-
-
-function showMenu (a) {
-    a.classList.add('.menu_active')
-}
-
 
