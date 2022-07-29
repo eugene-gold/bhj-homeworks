@@ -5,8 +5,7 @@ menu.addEventListener('click', (event)=> {
     event.preventDefault()
 })
 
-const itemValue = document.querySelector('.dropdown__value').textContent
 const menuItem = document.querySelectorAll('.dropdown__item')
-menuItem.forEach()
 
-console.log(menuItem)
+menuItem.forEach(item => item.addEventListener('click', () => document.querySelector('.dropdown__value').textContent = item.querySelector('.dropdown__link').textContent))
+
