@@ -95,4 +95,3 @@ backgrnds.forEach( item => item.addEventListener('click', (event) => {
     changeBackGrnd(event)
 }))
 
-console.log(backgrnds)
