@@ -5,14 +5,15 @@ const isInViewport = function(element){
         const elementBottom =
             element.getBoundingClientRect().bottom;
 
-        return (elementBottom < viewportHeight) ? true : false;
+        return ((elementBottom < viewportHeight && elementBottom > 0)) ? true : false
+
 };
 
 window.addEventListener('scroll', ()=> {
     blocks.forEach(item => {
         if(isInViewport(item)) {
             item.classList.add('reveal_active')
-        } else if (!isInViewport(item)) {
+        } else {
             item.classList.remove('reveal_active')
         }
     })
