@@ -1,7 +1,7 @@
 let hrefs = document.querySelectorAll('.has-tooltip')
 let tooltip = document.createElement('div')
 tooltip.className = 'tooltip';
-const deleteTT = () => tooltip.remove()
+// const deleteTT = () => tooltip.remove()
 
 const showBox = (event) => {
     tooltip.textContent = event.target.title
@@ -17,13 +17,16 @@ const showBox = (event) => {
     tooltip.style.left = event.target.getBoundingClientRect().left + 'px'
 
 
-    setTimeout(deleteTT, 1000)
+    // setTimeout(deleteTT, 1000)
 }
 hrefs.forEach( item => item.addEventListener('click',  (event)=> {
     event.preventDefault()
-    tooltip.classList.toggle('tooltip_active')
-    showBox(event)
-
+    if(event.target.querySelector('.tooltip_active')) {
+        event.target.querySelector('.tooltip_active').classList.remove('tooltip_active')
+    }else {
+        tooltip.classList.add('tooltip_active')
+        showBox(event)
+    }
 }))
 
 
