@@ -11,3 +11,20 @@ mainCheck.addEventListener('change', (event) => {
         })
 
 })
+//алгоритм обхода дома дерева
+
+// function traverse(startNode) {
+//     const stack = [startNode]
+//     while (stack.length > 0) {
+//         const current = stack.pop()
+//         if (current.classList.contains('interest__check')) {
+//             current.checked = false
+//         }
+//         stack.push(...current.children)
+//     }
+// }
+//
+// const parent = document.querySelectorAll('.interest')
+// parent.forEach((item) => {
+//     traverse(item)
+// })
