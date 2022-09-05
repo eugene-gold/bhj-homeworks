@@ -1,21 +1,15 @@
 let inputText = document.querySelector('.card')
 let textArea = document.getElementById('editor')
 
-if (localStorage.inputSession) {
-    textArea.value = localStorage.inputSession
-}
-else {
-    console.log('empty session')
-}
+textArea.value = localStorage.getItem('inputSession');
 
 inputText.addEventListener('input',  (event) => {
     textArea.value = event.target.value
     localStorage.inputSession = textArea.value
 })
 
-inputText.addEventListener('click', (evt)=> {
-    if(evt.target === document.getElementById('reset')) {
-        localStorage.clear()
+document.getElementById('reset').addEventListener('click', (evt)=> {
+        evt.preventDefault()
+        localStorage.removeItem('inputSession')
         textArea.value = ''
-    }
 })
